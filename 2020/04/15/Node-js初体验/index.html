@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何在一个电脑部署两个github pages博客 | 温东霖的个人博客</title>
+  <title>Node.js初体验 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个电脑上部署两个github pages">
+  <meta name="description" content="Node.js初体验（REPL    REP流）了解1234567cmd   node	（执行命令）or创建文件  cmd   node  文件 nodejs编写程序使用：内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）  自定义模块：自己创建的js  自定义Node.js模块   a.js   var  b&#x3D;require(&amp;apos;.&#x2F;b&amp;apos;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在一个电脑部署两个github pages博客">
-<meta property="og:url" content="http://yoursite.com/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Node.js初体验">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="一个电脑上部署两个github pages">
+<meta property="og:description" content="Node.js初体验（REPL    REP流）了解1234567cmd   node	（执行命令）or创建文件  cmd   node  文件 nodejs编写程序使用：内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）  自定义模块：自己创建的js  自定义Node.js模块   a.js   var  b&#x3D;require(&amp;apos;.&#x2F;b&amp;apos;)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-13T11:28:12.000Z">
-<meta property="article:modified_time" content="2020-04-15T16:34:20.293Z">
+<meta property="article:published_time" content="2020-04-15T14:44:31.000Z">
+<meta property="article:modified_time" content="2020-04-15T16:31:05.829Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
   
@@ -170,75 +170,184 @@
             
 
 
-<article id="post-如何在一个电脑部署两个github-pages博客" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="title-Node-js初体验" class="article article-type-title " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何在一个电脑部署两个github pages博客
+      Node.js初体验
     </h1>
   
 
         
-        <a href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-13T11:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+        <a href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
+  	<time datetime="2020-04-15T14:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一个电脑上部署两个github-pages"><a href="#一个电脑上部署两个github-pages" class="headerlink" title="一个电脑上部署两个github pages"></a>一个电脑上部署两个github pages</h1><a id="more"></a>
-<p>今天我的老婆来我家了，要求我教如何部署博客，经过第一次部署后不成功，后来想了一下原因，电脑中有两个公钥私钥，但是.ssh配置文件中，只有一个配置路径，然后第二个博客在上传的时候只能找到Ricardowdl的路径。如果已经完成hexo的配置以及git的配置，那么可以按照下部分来操作  </p>
-<h2 id="有关报错："><a href="#有关报错：" class="headerlink" title="有关报错："></a>有关报错：</h2><p>· 同一台电脑部署第二个Hexo博客执行hexo g -d时报错：ERROR: Permission to xxxxxx/xxxxxx.github.io.git denied to xxxxxx.<br>· 添加新的 SSH 密钥 到 SSH agent 执行ssh-add xxx时报错：Could not open a connection to your authentication agent.<br>· 单独设置用户名/邮箱时报错：fatal: not in a git directory</p>
-<h2 id="前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo-g-d命令部署到-GitHub-上时报错：ERROR-Permission-to-xxxxxx-xxxxxx-github-io-git-denied-to-xxxxxx"><a href="#前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo-g-d命令部署到-GitHub-上时报错：ERROR-Permission-to-xxxxxx-xxxxxx-github-io-git-denied-to-xxxxxx" class="headerlink" title="前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo g -d命令部署到 GitHub 上时报错：ERROR: Permission to xxxxxx/xxxxxx.github.io.git denied to xxxxxx."></a>前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo g -d命令部署到 GitHub 上时报错：ERROR: Permission to xxxxxx/xxxxxx.github.io.git denied to xxxxxx.</h2><p>进入Users/.ssh文件夹中可以看到两队密钥</p>
-<p>使用下面命令行创建新密钥：</p>
-<p>ssh-keygen -t rsa -C “这里是你的邮箱”<br>回车后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public&#x2F;private rsa key pair.  </span><br><span class="line">Enter file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa):</span><br></pre></td></tr></table></figure>
-<p>注意此时需要你输入新密钥的名称，同样要注意区别新密钥名称和旧密钥名称，不要相同！！！之后再两次回车，新密钥创建完毕！</p>
-<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><p>创建config文件在.ssh文件夹中<br>打开config文件，写入配置：</p>
-<pre><code>#第一个账号，默认使用的账号，不用做任何更改
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa
+        <h1 id="Node-js初体验"><a href="#Node-js初体验" class="headerlink" title="Node.js初体验"></a>Node.js初体验</h1><h2 id="（REPL-REP流）了解"><a href="#（REPL-REP流）了解" class="headerlink" title="（REPL    REP流）了解"></a>（REPL    REP流）了解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmd   node</span><br><span class="line">	（执行命令）</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">创建文件  </span><br><span class="line">cmd   node  文件</span><br></pre></td></tr></table></figure>
+<h2 id="nodejs编写程序使用："><a href="#nodejs编写程序使用：" class="headerlink" title="nodejs编写程序使用："></a>nodejs编写程序使用：</h2><p>内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）</p>
 
-#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到
-Host xxxxxx.github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/这里是你创建的新密钥的名称  </code></pre><p>然后，复制新的SSH到github仓库的SSH连接中。</p>
-<h2 id="清空本地的-SSH-缓存，添加新的-SSH-密钥-到-SSH-agent中"><a href="#清空本地的-SSH-缓存，添加新的-SSH-密钥-到-SSH-agent中" class="headerlink" title="清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中"></a>清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中</h2><p>用命令cd ~/.sshcd到.ssh根目录下，依次执行以下命令：  </p>
-<pre><code>ssh-add -D
-ssh-add xxxxxx #旧密钥名称，一般是id_rsa
-ssh-add xxxxxx #新创建的密钥名称</code></pre><p>如果执行以上命令出现错误：Could not open a connection to your authentication agent.，那么就需要先执行ssh-agent bash，再执行以上命令  </p>
-<h2 id="验证配置是否成功"><a href="#验证配置是否成功" class="headerlink" title="验证配置是否成功"></a>验证配置是否成功</h2><p>依次执行以下命令，第一个为默认ssh_key验证；第二个为新的ssh_key验证，其中“xxxxxx”为你先前在config文件中的命名  </p>
-<pre><code>ssh -T git@github.com
-ssh -T git@xxxxxxx.github.com</code></pre><p>依次显示以下信息, 则说明配置成功：  </p>
-<blockquote>
-<p>Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.  </p>
-</blockquote>
-<h2 id="取消全局用户名-邮箱配置，单独设置用户名-邮箱"><a href="#取消全局用户名-邮箱配置，单独设置用户名-邮箱" class="headerlink" title="取消全局用户名/邮箱配置，单独设置用户名/邮箱"></a>取消全局用户名/邮箱配置，单独设置用户名/邮箱</h2><p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：  </p>
-<pre><code>git config --global --unset user.name
-git config --global --unset user.email</code></pre><p>分别进入你的两个Hexo博客.git目录下执行以下命令单独设置用户名/邮箱：  </p>
-<pre><code>git config user.name &quot;这里是用户名&quot;
-git config user.email &quot;这里是你的邮箱&quot;</code></pre><p>如果此时报错：fatal: not in a git directory，说明你没有进入.git目录下，具体路径：\Hexo.deploy_git.git，.git目录是隐藏的，需要你设置隐藏目录可见  </p>
-<p>执行以下命令可以查看设置是否成功  </p>
-<pre><code>git config --list   </code></pre><h2 id="hexo-配置文件修改git地址"><a href="#hexo-配置文件修改git地址" class="headerlink" title="hexo 配置文件修改git地址"></a>hexo 配置文件修改git地址</h2><p>打开你的第二个博客Hexo目录下的_config.yml文件，找到deploy关键字，写入以下配置并保存：</p>
-<pre><code>deploy:
-  type: git
-  repository: git@xxxxxx.github.com:你的用户名/你的用户名.github.io.git
-  branch: master</code></pre><p>我的配置    </p>
-<pre><code>deploy:
-  type: git
-  repo: git@lin.github.com:Ronronlin/Ronronlin.github.io.git
-  branch: master
+<p>自定义模块：自己创建的js</p>
 
-</code></pre><p>再次进行hexo操作，就可以把新的博客部署上去了。   </p>
-<h1 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h1><p>· SSH的公钥是GitHub作为本地仓库和远程仓库连接的唯一标识，一个公钥只能对应一个GitHub账户，如果将一个相同的公钥上传到不同的GitHub账户，GitHub则无法做出辨识，进而导致错误<br>· 一台电脑，可以生成多对公私钥，可以通过配置，将不同的公钥上传到不同的GitHub账号，那么就不存在单个公钥绑定多个GitHub账号的情况存在了</p>
+<h2 id="自定义Node-js模块"><a href="#自定义Node-js模块" class="headerlink" title="自定义Node.js模块"></a>自定义Node.js模块</h2>  
+<p>a.js  </p>
+<pre><code>var  b=require(&apos;./b&apos;);//js 可以不写
+console.log(b);
 
+b.add();
+
+/*E:\work\nodejs\www&gt;node a.js
+{
+    add: [Function: add],
+    del: [Function: del],
+    edit: [Function: edit],
+    select: [Function: select]
+  }
+  this is add
+  */</code></pre><p>b.js  </p>
+<pre><code>//步骤一定义
+function add(){
+    console.log(&apos;this is add&apos;)
+}
+function del(){
+    console.log(&apos;this is del&apos;)
+}
+function edit(){
+    console.log(&apos;this is edit&apos;)
+}
+function select(){
+    console.log(&apos;this is select&apos;)
+}
+
+//步骤二导出  语法：exports.moudle.exports.成员名=值
+exports.add=add;
+exports.del=del;
+exports.edit=edit;
+exports.select=select;  
+</code></pre><h3 id="exports是moudle-exports快捷方式"><a href="#exports是moudle-exports快捷方式" class="headerlink" title="exports是moudle.exports快捷方式"></a>exports是moudle.exports快捷方式</h3><h1 id="nodejs-cn-api-看api"><a href="#nodejs-cn-api-看api" class="headerlink" title="nodejs.cn/api           看api"></a>nodejs.cn/api           看api</h1><h2 id="内置os模块（操作系统）os-js"><a href="#内置os模块（操作系统）os-js" class="headerlink" title="内置os模块（操作系统）os.js"></a>内置os模块（操作系统）os.js</h2><pre><code>
+//内置模块os
+var os=require(&quot;os&quot;);
+console.log(&apos;hello&apos; +os.EOL+&apos;itcast&apos;);
+console.log(&quot;主机名&quot;+os.hostname())
+console.log(&quot;manage system&quot;+os.type());
+console.log(&quot;操作系统平台&quot; +os.platform());
+console.log(&quot;内存总量&quot;+os.totalmem()+&quot;字节&quot;);
+console.log(&quot;空闲内存&quot;+os.freemem()+&quot;bytes&quot;);  
+
+</code></pre><h2 id="path模块-path-js"><a href="#path模块-path-js" class="headerlink" title="path模块    path.js"></a>path模块    path.js</h2><pre><code>
+//1.引入path模块
+var path = require(&apos;path&apos;)
+var testData=&quot;c:/app/view/godos/add.html&quot;;
+//using     dirname  去掉一层
+console.log(path.basename(testData))//add.html
+testData=path.dirname(testData);
+console.log(testData)//c:/app/view/godos
+console.log(path.basename(testData))//  
+</code></pre><h2 id="url模块-处理网址"><a href="#url模块-处理网址" class="headerlink" title="url模块  处理网址"></a>url模块  处理网址</h2><pre><code>//引入url模块
+var url=require(&apos;url&apos;)
+var data=&apos;http://itcast.cn?name=张三&amp;age=18&apos;;
+
+console.log(data)
+console.log(url.parse(data))//url.parse   将一个URL字符串转换成对象并返回。  </code></pre><h2 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h2><p>http模块 创建服务器  </p>
+<pre><code>//1.引入模块
+var http= require(&apos;http&apos;)
+//2.创建web服务器
+var server=http.createServer()
+//3.监听请求
+server.on(&apos;request&apos;,function(req,res){//req-request  res-response
+    console.log(&apos;收到用户请求,请求地址&apos;+req.url)
+    //留心，有请求应有响应，没有响应无法打开
+    res.write(&apos;hello,wdl&apos;)
+    res.end();
+})
+//4.启动服务
+server.listen(8080,function(){
+    console.log(&apos;服务启动成功，访问：http://localhost:8080&apos;)
+})  </code></pre><pre><code>//1.引入模块
+var http= require(&apos;http&apos;)
+//2.创建web服务器
+var server=http.createServer()
+//3.监听请求
+server.on(&apos;request&apos;,function(req,res){//req-request  res-response
+    console.log(&apos;收到用户请求,请求地址&apos;+req.url)
+    //留心，有请求应有响应，没有响应无法打开
+    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+    res.write(&quot;hello,温东霖,&lt;a href=&apos;http://nn.com&apos;&gt;进入我的世界&lt;/a&gt;&quot;)
+    res.end();
+})
+//4.启动服务
+server.listen(8080,function(){
+    console.log(&apos;服务启动成功，访问：http://localhost:8080&apos;)
+})  
+</code></pre><pre><code>//1.引入模块
+var http= require(&apos;http&apos;)
+//2.创建web服务器
+var server=http.createServer()
+//3.监听请求
+server.on(&apos;request&apos;,function(req,res){//req-request  res-response
+    console.log(&apos;收到用户请求,请求地址&apos;+req.url)
+    //判断请求地址
+    if(req.url==&apos;/&apos;){
+        $msg=&apos;this is index&apos;
+    }else if(req.url==&apos;/login&apos;){
+        $msg=&apos;this is login&apos;
+    }else{
+        $msg=&apos;404&apos;
+    }
+
+
+
+
+    //留心，有请求应有响应，没有响应无法打开
+    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+   // res.write(&quot;hello,温东霖,&lt;a href=&apos;http://nn.com&apos;&gt;进入我的世界&lt;/a&gt;&quot;)
+    res.write($msg);
+
+    res.end();
+})
+//4.启动服务
+server.listen(8080,function(){
+    console.log(&apos;服务启动成功，访问：http://localhost:8080&apos;)
+})
+</code></pre><pre><code>//1.引入模块
+var http= require(&apos;http&apos;)
+//2.创建web服务器
+var server=http.createServer()
+//3.监听请求
+server.on(&apos;request&apos;,function(req,res){//req-request  res-response
+    console.log(req.method);
+
+
+
+
+
+    //留心，有请求应有响应，没有响应无法打开
+  //  res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+
+
+    //res.statusCode=404;
+    //res.statusMessage=&apos;Not Found&apos;;
+    res.writeHeader(404,&apos;Not Found2&apos;,{
+        &apos;Content-Type&apos;:&apos;text/html;charset=utf8&apos;
+    })
+
+
+    // res.write(&quot;hello,温东霖,&lt;a href=&apos;http://nn.com&apos;&gt;进入我的世界&lt;/a&gt;&quot;)
+    res.write(&apos;打印请求request对象&apos;);
+
+    res.end();
+})
+//4.启动服务
+server.listen(8080,function(){
+    console.log(&apos;服务启动成功，访问：http://localhost:8080&apos;)
+})
+</code></pre>
       
 
       
@@ -327,7 +436,7 @@ git config user.email &quot;这里是你的邮箱&quot;</code></pre><p>如果此
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -341,18 +450,18 @@ git config user.email &quot;这里是你的邮箱&quot;</code></pre><p>如果此
   
 <nav id="article-nav">
   
-    <a href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Node.js初体验
+          webpack学习
         
       </div>
     </a>
   
   
-    <a href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">以此代笔，笨鸟再飞</div>
+    <a href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何在一个电脑部署两个github pages博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -379,7 +488,7 @@ git config user.email &quot;这里是你的邮箱&quot;</code></pre><p>如果此
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个电脑上部署两个github-pages"><span class="toc-number">1.</span> <span class="toc-text">一个电脑上部署两个github pages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#有关报错："><span class="toc-number">1.1.</span> <span class="toc-text">有关报错：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo-g-d命令部署到-GitHub-上时报错：ERROR-Permission-to-xxxxxx-xxxxxx-github-io-git-denied-to-xxxxxx"><span class="toc-number">1.2.</span> <span class="toc-text">前提：假设你的第二个博客相关配置操作已经顺利完成，但使用hexo g -d命令部署到 GitHub 上时报错：ERROR: Permission to xxxxxx&#x2F;xxxxxx.github.io.git denied to xxxxxx.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置config"><span class="toc-number">1.3.</span> <span class="toc-text">配置config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清空本地的-SSH-缓存，添加新的-SSH-密钥-到-SSH-agent中"><span class="toc-number">1.4.</span> <span class="toc-text">清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证配置是否成功"><span class="toc-number">1.5.</span> <span class="toc-text">验证配置是否成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取消全局用户名-邮箱配置，单独设置用户名-邮箱"><span class="toc-number">1.6.</span> <span class="toc-text">取消全局用户名&#x2F;邮箱配置，单独设置用户名&#x2F;邮箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-配置文件修改git地址"><span class="toc-number">1.7.</span> <span class="toc-text">hexo 配置文件修改git地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原理分析"><span class="toc-number">2.</span> <span class="toc-text">原理分析</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js初体验"><span class="toc-number">1.</span> <span class="toc-text">Node.js初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（REPL-REP流）了解"><span class="toc-number">1.1.</span> <span class="toc-text">（REPL    REP流）了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs编写程序使用："><span class="toc-number">1.2.</span> <span class="toc-text">nodejs编写程序使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Node-js模块"><span class="toc-number">1.3.</span> <span class="toc-text">自定义Node.js模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exports是moudle-exports快捷方式"><span class="toc-number">1.3.1.</span> <span class="toc-text">exports是moudle.exports快捷方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs-cn-api-看api"><span class="toc-number">2.</span> <span class="toc-text">nodejs.cn&#x2F;api           看api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内置os模块（操作系统）os-js"><span class="toc-number">2.1.</span> <span class="toc-text">内置os模块（操作系统）os.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path模块-path-js"><span class="toc-number">2.2.</span> <span class="toc-text">path模块    path.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url模块-处理网址"><span class="toc-number">2.3.</span> <span class="toc-text">url模块  处理网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs模块"><span class="toc-number">2.4.</span> <span class="toc-text">fs模块</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
