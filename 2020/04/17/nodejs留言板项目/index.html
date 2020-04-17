@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 温东霖的个人博客</title>
+  <title>nodejs留言板项目 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nice to meet you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温东霖的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="用Node.js搭建一个简易的留言板后台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs留言板项目">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Nice to meet you">
+<meta property="og:description" content="用Node.js搭建一个简易的留言板后台">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-17T11:21:03.000Z">
+<meta property="article:modified_time" content="2020-04-17T11:37:59.099Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
   
@@ -166,210 +168,369 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+
+<article id="post-nodejs留言板项目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      nodejs留言板项目
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+
+        
+        <a href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
   	<time datetime="2020-04-17T11:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/">nodejs留言板项目</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="用Node-js搭建一个简易的留言板后台"><a href="#用Node-js搭建一个简易的留言板后台" class="headerlink" title="用Node.js搭建一个简易的留言板后台"></a>用Node.js搭建一个简易的留言板后台</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3>   
+<h2 id="页面代码"><a href="#页面代码" class="headerlink" title="页面代码"></a>页面代码</h2><blockquote>
+<p>（因为关键点在于学习后台因此自己写的几个简易的网页用于测试）  </p>
+</blockquote>
+<p>index.html   </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot;  href=&quot;../public/css/test.css&quot; /&gt;
+&lt;/head&gt;
 
+
+&lt;body&gt;
+    &lt;div class=&quot;gray-background&quot;&gt;
+        &lt;p&gt;Things cats love:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;cat nip&lt;/li&gt;
+        &lt;li&gt;laser pointers&lt;/li&gt;
+        &lt;li&gt;lasagna&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Top 3 things cats hate:&lt;/p&gt;
+        &lt;ol&gt;
+        &lt;li&gt;flea treatment&lt;/li&gt;
+        &lt;li&gt;thunder&lt;/li&gt;
+        &lt;li&gt;other cats&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/div&gt;
+    &lt;a href=&quot;add&quot;&gt;点这跳转&lt;/a&gt;
+    &lt;li&gt;^_^&lt;/li&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre><p>add.html    </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;div&gt;此处是add页&lt;/div&gt;
+    &lt;div&gt;
+        &lt;form action=&quot;/doadd&quot; method=&quot;POST&quot;&gt;
+            &lt;label for=&quot;input_name&quot;&gt;mingzi&lt;/label&gt;
+            &lt;input type=&quot;text&quot; required minlength=&quot;10&quot; name=&quot;name&quot; placeholder=&quot;xingming&quot;&gt;
+            &lt;label for=&quot;textarea_message&quot;&gt;留言内容&lt;/label&gt;
+            &lt;textarea name=&quot;content&quot; cols=&quot;30&quot; rows=&quot;10&quot; required&gt;&lt;/textarea&gt;
+            &lt;button type=&quot;submit&quot; &gt;发表&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>404.html   </p>
+<pre><code>&lt;body&gt;&lt;div&gt;此处是404页&lt;/div&gt;&lt;/body&gt;    </code></pre><p>test.css   </p>
+<pre><code>
+.gray-background {
+    background-color: gray;
+    }
+</code></pre><h2 id="服务器代码-app-js"><a href="#服务器代码-app-js" class="headerlink" title="服务器代码(app.js)"></a>服务器代码(app.js)</h2><pre><code> //1.引入模块
+var http= require(&apos;http&apos;)
+var fs=require(&apos;fs&apos;)
+var url=require(&apos;url&apos;)
+var querystring=require(&apos;querystring&apos;)
+//2.创建web服务器
+var server=http.createServer()
+//3.监听请求
+var msgs=[
+    {name:&apos;王五&apos;,content:&quot;nihaowohzhengsna&quot;,create_at:&apos;2017....&apos;},
+    {name:&apos;王yi&apos;,content:&quot;nihaowohzhengyi&quot;,create_at:&apos;2018....&apos;},
+    {name:&apos;王er&apos;,content:&quot;nihaowohzhenger&quot;,create_at:&apos;2019....&apos;}
+]
+
+
+
+server.on(&apos;request&apos;,function(req,res){//req-request  res-response
+        //获取当前请求地址          
+        var currentUrl=req.url
+        //请求/    加载留言板列表
+        if(currentUrl==&apos;/&apos;){
+            fs.readFile(&apos;./view/index.html&apos;,&apos;utf-8&apos;,function(err,data){
+                if(err) res.end(&apos;404 Not Found&apos;);
+
+
+               //遍历数据并拼接数据 JQ $.each   JS   数组.foreach
+              var html=&apos;&apos;;
+               msgs.forEach(function(item) {
+
+                   //ES6语法，反引号，遍历$输出
+                   html +=`
+                   &lt;li&gt;${item.name}说:${item.content}
+                    ${item.create_at}
+                   &lt;/li&gt;
+                   `
+               });
+               //将获取的视图里面的小脸替换成最终数据
+            var data=data.replace(&apos;^_^&apos;,html);
+
+                res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+
+                res.write(data)
+                res.end()
+            })
+        }else if(currentUrl==&apos;/add&apos;){
+      //请求“/add” 加载留言   
+              fs.readFile(&apos;./view/add.html&apos;,&apos;utf-8&apos;,function(err,data){
+              if(err) res.end(&apos;404 Not Found&apos;);
+              res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+
+              res.write(data)
+              res.end()
+            })
+        }else if(currentUrl.indexOf(&apos;/public&apos;)=== 0 ){//静态资源       监测静态资源并响应（*）
+            fs.readFile(&apos;./&apos;+currentUrl,&apos;utf-8&apos;,function(err,data){
+                if(err) res.end(&apos;404 Not Found&apos;);
+                //res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+
+                res.write(data)
+                res.end()
+        })  
+     } 
+
+
+
+
+     else if(currentUrl.indexOf(&apos;/doadd&apos;)==0){
+         //表单提交数据
+         if(req.method==&apos;POST&apos;){
+            //post提交数据会很大，所以要分片获取
+                //data事件-数据传输中，end事件-数据传输完毕
+                var postData=&apos;&apos;;
+                req.on(&apos;data&apos;,function(chunk){
+                    postData += chunk;
+                });
+                req.on(&apos;end&apos;,function(){
+                    paramObj=querystring.parse(postData);
+
+                console.log(paramObj)
+                    //入库（压入到数组push pop）
+            var d=new Date();
+            var data=d.getFullYear();
+             var msg={
+                name:paramObj.name,   content:paramObj.content,  create_at:data
+            }
+            msgs.push(msg)
+             //跳转
+             res.statusCode=302;
+             res.setHeader(&apos;Location&apos;,&apos;/&apos;);
+             res.end()
+            });
+         }else{
+             //1接收数据     GET
+             var paramObj=url.parse(req.url,true).query
+             console.log(paramObj)
+
+             //入库（压入到数组push pop）
+            var d=new Date();
+            var data=d.getFullYear();
+             var msg={
+                name:paramObj.name,   content:paramObj.content,  create_at:data
+            }
+            msgs.push(msg)
+             //跳转
+             res.statusCode=302;
+             res.setHeader(&apos;Location&apos;,&apos;/&apos;);
+             res.end()
+         }
+     }
+
+
+
+
+
+     else{       //否则  404
+            fs.readFile(&apos;./view/404.html&apos;,&apos;utf-8&apos;,function(err,data){
+                if(err) res.end(&apos;404 Not Found&apos;);
+                res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=UTF-8&apos;);//解决乱码
+
+                res.write(data)
+                res.end()
+        })
+        }
+
+
+
+    })
+server.listen(8080,function(){
+    console.log(&apos;启动成功，访问：&apos;)
+})     </code></pre><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>在进行这个项目时，学习和使用到学到的fs\url\http\querystring模块，在写入时，引入静态资源的部分是比较难的，以及后面的post提交，也比较令人头疼  </p>
+<h3 id="提交流程"><a href="#提交流程" class="headerlink" title="提交流程"></a>提交流程</h3><blockquote>
+<p>get数据处理<br>数据处理（修改表单属性 action name）<br>数据处理（接收参数   入库   判断跳转）   </p>
+</blockquote>
+<p>在学习时还学习了使用chrome network看载入资源的方法。</p>
+<p>最后，浏览器进入<a href="http://localhost:8080，">http://localhost:8080，</a>  即可进行。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/">webpack学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用Node-js搭建一个简易的留言板后台"><span class="toc-number">1.</span> <span class="toc-text">用Node.js搭建一个简易的留言板后台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目准备"><span class="toc-number">1.1.</span> <span class="toc-text">项目准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录结构"><span class="toc-number">1.1.1.</span> <span class="toc-text">目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面代码"><span class="toc-number">1.2.</span> <span class="toc-text">页面代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器代码-app-js"><span class="toc-number">1.3.</span> <span class="toc-text">服务器代码(app.js)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">1.4.</span> <span class="toc-text">结语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提交流程"><span class="toc-number">1.4.1.</span> <span class="toc-text">提交流程</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/">Node.js初体验</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-13T11:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/">如何在一个电脑部署两个github pages博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/" class="archive-article-date">
-  	<time datetime="2020-04-12T08:40:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/">以此代笔，笨鸟再飞</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-04-11T11:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-11T08:49:31.953Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -396,8 +557,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

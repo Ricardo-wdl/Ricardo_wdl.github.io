@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Node.js初体验 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Node.js初体验（REPL    REP流）了解1234567cmd   node	（执行命令）or创建文件  cmd   node  文件 nodejs编写程序使用：内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）  自定义模块：自己创建的js  自定义Node.js模块   a.js   var  b&#x3D;require(&amp;apos;.&#x2F;b&amp;apos;)">
+  <meta name="description" content="Node.js初体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js初体验">
 <meta property="og:url" content="http://yoursite.com/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Node.js初体验（REPL    REP流）了解1234567cmd   node	（执行命令）or创建文件  cmd   node  文件 nodejs编写程序使用：内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）  自定义模块：自己创建的js  自定义Node.js模块   a.js   var  b&#x3D;require(&amp;apos;.&#x2F;b&amp;apos;)">
+<meta property="og:description" content="Node.js初体验">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-15T14:44:31.000Z">
-<meta property="article:modified_time" content="2020-04-15T16:31:05.829Z">
+<meta property="article:modified_time" content="2020-04-17T11:20:19.308Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
   
@@ -190,7 +190,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Node-js初体验"><a href="#Node-js初体验" class="headerlink" title="Node.js初体验"></a>Node.js初体验</h1><h2 id="（REPL-REP流）了解"><a href="#（REPL-REP流）了解" class="headerlink" title="（REPL    REP流）了解"></a>（REPL    REP流）了解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmd   node</span><br><span class="line">	（执行命令）</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">创建文件  </span><br><span class="line">cmd   node  文件</span><br></pre></td></tr></table></figure>
+        <h1 id="Node-js初体验"><a href="#Node-js初体验" class="headerlink" title="Node.js初体验"></a>Node.js初体验</h1><a id="more"></a>
+<h2 id="（REPL-REP流）了解"><a href="#（REPL-REP流）了解" class="headerlink" title="（REPL    REP流）了解"></a>（REPL    REP流）了解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmd   node</span><br><span class="line">	（执行命令）</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">创建文件  </span><br><span class="line">cmd   node  文件</span><br></pre></td></tr></table></figure>
 <h2 id="nodejs编写程序使用："><a href="#nodejs编写程序使用：" class="headerlink" title="nodejs编写程序使用："></a>nodejs编写程序使用：</h2><p>内置模块（http服务器等  fs文件操作、url路径、path路径处理、os操作系统）</p>
 
 <p>自定义模块：自己创建的js</p>
@@ -254,8 +255,18 @@ var url=require(&apos;url&apos;)
 var data=&apos;http://itcast.cn?name=张三&amp;age=18&apos;;
 
 console.log(data)
-console.log(url.parse(data))//url.parse   将一个URL字符串转换成对象并返回。  </code></pre><h2 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h2><p>http模块 创建服务器  </p>
-<pre><code>//1.引入模块
+console.log(url.parse(data))//url.parse   将一个URL字符串转换成对象并返回。  </code></pre><h2 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h2><pre><code>//引入fs模块 files
+var fs=require(&apos;fs&apos;)
+//通过write.js 创建a.txt写入哈哈哈
+fs.writeFile(&apos;./a.txt&apos;,&apos;哈哈哈&apos;,function(err){
+    //err 为null 成功
+    //err 不为null  有瑕疵
+    if(err){
+        console.log(err)
+        return;
+    }
+    console.log(&apos;success&apos;)
+})</code></pre><h3 id="http模块-创建服务器"><a href="#http模块-创建服务器" class="headerlink" title="http模块 创建服务器"></a>http模块 创建服务器</h3><pre><code>//1.引入模块
 var http= require(&apos;http&apos;)
 //2.创建web服务器
 var server=http.createServer()
@@ -488,7 +499,7 @@ server.listen(8080,function(){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js初体验"><span class="toc-number">1.</span> <span class="toc-text">Node.js初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（REPL-REP流）了解"><span class="toc-number">1.1.</span> <span class="toc-text">（REPL    REP流）了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs编写程序使用："><span class="toc-number">1.2.</span> <span class="toc-text">nodejs编写程序使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Node-js模块"><span class="toc-number">1.3.</span> <span class="toc-text">自定义Node.js模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exports是moudle-exports快捷方式"><span class="toc-number">1.3.1.</span> <span class="toc-text">exports是moudle.exports快捷方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs-cn-api-看api"><span class="toc-number">2.</span> <span class="toc-text">nodejs.cn&#x2F;api           看api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内置os模块（操作系统）os-js"><span class="toc-number">2.1.</span> <span class="toc-text">内置os模块（操作系统）os.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path模块-path-js"><span class="toc-number">2.2.</span> <span class="toc-text">path模块    path.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url模块-处理网址"><span class="toc-number">2.3.</span> <span class="toc-text">url模块  处理网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs模块"><span class="toc-number">2.4.</span> <span class="toc-text">fs模块</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js初体验"><span class="toc-number">1.</span> <span class="toc-text">Node.js初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（REPL-REP流）了解"><span class="toc-number">1.1.</span> <span class="toc-text">（REPL    REP流）了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs编写程序使用："><span class="toc-number">1.2.</span> <span class="toc-text">nodejs编写程序使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Node-js模块"><span class="toc-number">1.3.</span> <span class="toc-text">自定义Node.js模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exports是moudle-exports快捷方式"><span class="toc-number">1.3.1.</span> <span class="toc-text">exports是moudle.exports快捷方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs-cn-api-看api"><span class="toc-number">2.</span> <span class="toc-text">nodejs.cn&#x2F;api           看api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内置os模块（操作系统）os-js"><span class="toc-number">2.1.</span> <span class="toc-text">内置os模块（操作系统）os.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path模块-path-js"><span class="toc-number">2.2.</span> <span class="toc-text">path模块    path.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url模块-处理网址"><span class="toc-number">2.3.</span> <span class="toc-text">url模块  处理网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs模块"><span class="toc-number">2.4.</span> <span class="toc-text">fs模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http模块-创建服务器"><span class="toc-number">2.4.1.</span> <span class="toc-text">http模块 创建服务器</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
