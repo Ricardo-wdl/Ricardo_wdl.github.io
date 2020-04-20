@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 温东霖的个人博客</title>
+  <title>Vue初体验 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nice to meet you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温东霖的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="Vue初体验2020.4.19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue初体验">
+<meta property="og:url" content="http://yoursite.com/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Nice to meet you">
+<meta property="og:description" content="Vue初体验2020.4.19">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/%E5%9B%BE%E4%B8%80.png">
+<meta property="article:published_time" content="2020-04-20T12:26:46.000Z">
+<meta property="article:modified_time" content="2020-04-20T12:32:45.220Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/%E5%9B%BE%E4%B8%80.png">
   
     <link rel="alternative" href="/atom.xml" title="温东霖的个人博客" type="application/atom+xml">
   
@@ -166,291 +170,343 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+
+<article id="post-Vue初体验" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Vue初体验
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
+
+        
+        <a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
   	<time datetime="2020-04-20T12:26:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/">Vue初体验</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vue初体验"><a href="#Vue初体验" class="headerlink" title="Vue初体验"></a>Vue初体验</h1><p>2020.4.19  </p>
+<a id="more"></a>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>Vue.js是前端的主流框架之一，可以开发网站     和app（用Weex）<br>Vue.js是一套构建用户界面的框架，<strong><em>只关注视图层</em></strong>，便于和第三方库或既有项目的整合    </p>
+<h2 id="框架和库的区别"><a href="#框架和库的区别" class="headerlink" title="框架和库的区别"></a>框架和库的区别</h2><p>框架：是一套完整的解决方案，对项目的侵入性较大，项目如果需要更换框架，则需要重构一边项目<br> 库（插件）：提供一个小功能，如果库不能完成需求，可以切换其他。    </p>
+<h2 id="后端MVC和前端MVVM区别"><a href="#后端MVC和前端MVVM区别" class="headerlink" title="后端MVC和前端MVVM区别"></a>后端MVC和前端MVVM区别</h2><p> MVC是后端的分层开发概念（modle、view、controll）<br>MVVM是前端视图层概念  </p>
+<img src="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/%E5%9B%BE%E4%B8%80.png" class title="[图片]">   
 
-        <div class="article-info info-on-right">
-          
-          
 
+
+<h1 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h1><p>Vue的引用，可以用CDN，但是不稳定，最好还是下载下来在项目中。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;!-- 导入vue --&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 将来new的Vue实例会控制这个元素中的所有内容--&gt;
+    &lt;!-- Vue实例控制的这个元素区域，就是V --&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;p&gt;{{msg}}&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        //创建vue实例
+        //当我们导入包后，在浏览器的内存中，就多了一个Vue构造函数
+        //注意，new出来的这个vm对象，就是MVVM中的VM调度者
+        var vm= new Vue({
+            el: &apos;#app&apos; , //表示当前new的Vue实例。要控制页面上的哪个区
+            //data就是MVVM的M，用于保存每个页面数据。
+            data: {//data属性中，存放el中要用的数据
+                msg: &apos;欢迎hello world&apos;  //通过Vue提供的指令，很方便的把数据渲染在也买你上，程序员不在手动操作DOM元素
+                    //前端Vue框架不提倡我们手动操作DOM
+            }
+        })
+
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;    </code></pre><h2 id="v-cloak的学习"><a href="#v-cloak的学习" class="headerlink" title="v-cloak的学习"></a>v-cloak的学习</h2><pre><code> &lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        [v-clock]{
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;!-- 用v-clock能解决插值表达式闪烁--&gt;
+        &lt;p v-cloak&gt;{{msg}}&lt;/p&gt;
+        &lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt;
+        &lt;!-- 1.默认v-text没有闪烁问题 2.v-text会覆盖元素中的基本雷人，但是 插值表达式，智慧替换这个占位符，不会把元素内容清空 --&gt;
+
+    &lt;div&gt;{{msg2}}&lt;/div&gt;
+    &lt;div v-text=&apos;msg2&apos;&gt;&lt;/div&gt;
+    &lt;div v-html=&quot;msg2&quot;&gt;&lt;/div&gt;
+        &lt;!-- v-bind：用于绑定属性的指令 --&gt;
+        &lt;!-- v-bind可以简写为 :绑定的属性 --&gt;
+        &lt;!-- v-bind可以写合法的JS表达式 --&gt;
+
+
+        &lt;!-- v-on事件绑定机制,缩写@ --&gt;
+        &lt;input type=&quot;button&quot; value=&quot;mytitle&quot; :title=&quot;mytitle+&apos;123&apos;&quot; v-on:click=&quot;show&quot;&gt;
+
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+    var vm=new Vue({
+        el:&apos;#app&apos;,
+        data:{
+            msg:&apos;123&apos;,
+            msg2: &apos; &lt;h1&gt;哒哒哒哒哒&lt;/h1&gt; &apos;,
+            mytitle:&apos;这是自己定义&apos;
+        },
+        methods:{   //这个methods属性中定义了当前vue实例所有可用的方法
+            show:function(){
+                alert(&quot;hello&quot;)
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/html&gt;    </code></pre><h2 id="跑马灯实现"><a href="#跑马灯实现" class="headerlink" title="跑马灯实现"></a>跑马灯实现</h2><pre><code> &lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div id=&quot;app&quot; &gt;
+        &lt;input type=&quot;button&quot; value=&quot;转动&quot; @click=&quot;lang&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;定&quot; @click=&quot;stop&quot;&gt;
+
+        &lt;h4&gt; {{msg}}&lt;/h4&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        //在VM中，想要获取data上的数据或者要调用methods中的方法，必须要用this来访问，this表示new出来的实例对象
+        var vm=new Vue({
+            el:&apos;#app&apos;,
+            data:{
+                msg:&apos;我是温东霖&apos;,
+                intervalId:null
+            },
+            methods:{
+                lang(){
+                    if(this.intervalId != null) return;
+                    //判断，不加的话，点击多次转动，会开启多个计数器
+
+                    this.intervalId= setInterval(() =&gt; {
+                    console.log(this.msg)
+                    //获取到头的第一个字符
+                    var start=this.msg.substring(0,1)
+                    //获取到后面所有字符
+                    var end=this.msg.substring(1)
+                    //从新拼接得到的字符串，赋值给this.msg
+                    this.msg=end+start
+                   },400)
+
+
+
+            // methods:{
+            //     lang(){
+            //         var _this=this
+            //        setInterval(function(){
+            //         console.log(this.msg)
+            //         //获取到头的第一个字符
+            //         var start=_this.msg.substring(0,1)
+            //         //获取到后面所有字符
+            //         var end=_this.msg.substring(1)
+            //         //从新拼接得到的字符串，赋值给this.msg
+            //         _this.msg=end+start
+            //        },400)
+                    //VM实例，会监听自己身上data的数据改变，只要数据发生变化，就会自动把最新的数据从data上同步到页面上
+                    //好处，只需注意数据，不需考虑如何重新渲染
+                }
+                ,stop(){
+                        clearInterval(this.intervalId)
+                        //每当清除定时器后，需从新把intervalId设为null
+                        this.intervalId=null;
+                   }
+            }
+        })
+
+
+
+        //1.给【转动】绑定一个点击事件给 v-on
+        //2.在按钮的事件处理函数写相关业务的逻辑代码：拿到msg字符串，然后使用字符串的substring来进行字符串的截取操作，把第一个字符截取出来，放到最后一个位置即可
+        //3.自动截取功能，需要把2中的代码，放到一个定时器中
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;   </code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-18T14:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SourceTree安装与初体验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/">SourceTree安装与初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue初体验"><span class="toc-number">1.</span> <span class="toc-text">Vue初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue"><span class="toc-number">1.1.</span> <span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架和库的区别"><span class="toc-number">1.2.</span> <span class="toc-text">框架和库的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后端MVC和前端MVVM区别"><span class="toc-number">1.3.</span> <span class="toc-text">后端MVC和前端MVVM区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本代码"><span class="toc-number">2.</span> <span class="toc-text">基本代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#v-cloak的学习"><span class="toc-number">2.1.</span> <span class="toc-text">v-cloak的学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跑马灯实现"><span class="toc-number">2.2.</span> <span class="toc-text">跑马灯实现</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-n">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/npm%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-17T14:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/npm%E5%88%9D%E4%BD%93%E9%AA%8C/">npm初体验</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-04-17T11:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/">nodejs留言板项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/">webpack学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/">Node.js初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-13T11:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/">如何在一个电脑部署两个github pages博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/" class="archive-article-date">
-  	<time datetime="2020-04-12T08:40:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/">以此代笔，笨鸟再飞</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-04-11T11:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-11T08:49:31.953Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -477,8 +533,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
