@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/4 | 温东霖的个人博客</title>
+  <title>Vue第二天总结 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nice to meet you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温东霖的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta name="description" content="Vue 4.22事件修饰符、v-model、绑定class类、绑定style类、v-for key、v-if v-show、id品牌添加删除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue第二天总结">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Nice to meet you">
+<meta property="og:description" content="Vue 4.22事件修饰符、v-model、绑定class类、绑定style类、v-for key、v-if v-show、id品牌添加删除">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-22T14:59:13.000Z">
+<meta property="article:modified_time" content="2020-04-22T15:22:43.199Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
   
@@ -166,294 +168,422 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+
+<article id="n-Vue第二天总结" class="article article-type-n " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Vue第二天总结
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-n">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+
+        
+        <a href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
   	<time datetime="2020-04-22T14:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/">Vue第二天总结</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vue-4-22"><a href="#Vue-4-22" class="headerlink" title="Vue 4.22"></a>Vue 4.22</h1><p>事件修饰符、v-model、绑定class类、绑定style类、v-for key、v-if v-show、id品牌添加删除</p>
+<a id="more"></a>
+<h2 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;     </span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .inner&#123;</span><br><span class="line">            height: 150px;</span><br><span class="line">            background-color: darkcyan;</span><br><span class="line">        &#125;</span><br><span class="line">        .outer&#123;</span><br><span class="line">            padding: 40px;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">         &lt;div class&#x3D;&quot;inner&quot; @click&#x3D;&quot;div1Handler&quot;&gt;</span><br><span class="line">            &lt;!-- 使用.stop阻止冒泡--&gt;</span><br><span class="line">            &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;戳他&quot; @click.stop&#x3D;&quot;btnHandler&quot;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;    </span><br><span class="line">        &lt;!--  使用.prevent阻止默认行为--&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot; @click.prevent&#x3D;&quot;linkclick&quot;&gt;去百度&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">       &lt;!-- 只用.capture 实现捕获事件触发机制 --&gt;</span><br><span class="line">        &lt;!-- &lt;div class&#x3D;&quot;inner&quot; @click.capture&#x3D;&quot;div1Handler&quot;&gt;</span><br><span class="line">            &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;戳他&quot; @click&#x3D;&quot;btnHandler&quot;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;    --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 使用.self实现只有点击当前元素的时候，才会触发当前函数--&gt;</span><br><span class="line">        &lt;!-- &lt;div class&#x3D;&quot;inner&quot; @click.self&#x3D;&quot;div1Handler&quot;&gt;</span><br><span class="line">            &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;戳他&quot; @click&#x3D;&quot;btnHandler&quot;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;    --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--  使用.once 只触发一次事件处理函数--&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot; @click.prevent.once&#x3D;&quot;linkclick&quot;&gt;去百度&lt;&#x2F;a&gt;</span><br><span class="line">   &lt;!-- .stop和.self的区别 --&gt;</span><br><span class="line">   &lt;!--  .self只会阻止自己身上的冒泡行为的出发--&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;outer&quot; @click&#x3D;&quot;div2Handler&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;inner&quot; @click.stop&#x3D;&quot;div1Handler&quot;&gt;</span><br><span class="line">   </span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;戳他&quot; @click&#x3D;&quot;btnHandler&quot;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt; </span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        div1Handler()&#123;</span><br><span class="line">            console.log(&#39;出发inner div 点击事件&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        btnHandler()&#123;</span><br><span class="line">            console.log(&#39;出发btn按钮&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        linkclick()&#123;</span><br><span class="line">            console.log(&#39;触发这个连接&#39;)</span><br><span class="line">        &#125;,</span><br><span class="line">        div2Handler()&#123;</span><br><span class="line">            console.log(&#39;出发了outer div&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">       &lt;h4&gt; &#123;&#123;msg&#125;&#125;&lt;&#x2F;h4&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       &lt;!-- v-bind只能实现数据的单项绑定，从M自动绑定到V,无法实现数据的双向绑定 --&gt;</span><br><span class="line">       &lt;!-- &lt;input type&#x3D;&quot;text&quot; v-bind:value&#x3D;&quot;msg&quot; style&#x3D;&quot;width: 100%;&quot;&gt; --&gt;</span><br><span class="line">   </span><br><span class="line">        &lt;!-- 使用v-model可以实现表单元素和Model中数据的双向绑定 --&gt;</span><br><span class="line">        &lt;!-- v-model只能用在表单元素中 --&gt;</span><br><span class="line">        &lt;!-- input(radio,text,address....) select  checkbox   textarea --&gt;</span><br><span class="line">       &lt;input type&#x3D;&quot;text&quot; v-model:value&#x3D;&quot;msg&quot; style&#x3D;&quot;width: 100%;&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        msg:&#39;大家都是好学生，爱学习&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="绑定class"><a href="#绑定class" class="headerlink" title="绑定class"></a>绑定class</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .red&#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .thin&#123;</span><br><span class="line">        font-weight: 200;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .italic&#123;</span><br><span class="line">        font-style: italic;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .active&#123;</span><br><span class="line">        letter-spacing: 0.5em;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 第一种使用方式，直接传第一个数组，***这里的class需要使用v-bind数据绑定 --&gt;</span><br><span class="line">        &lt;h1 :class&#x3D;&quot;[&#39;thin&#39;,&#39;italic&#39;]&quot;&gt;这个很大，大到无法想象&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 在数组中使用三元表达式 --&gt;</span><br><span class="line">        &lt;h1 :class&#x3D;&quot;[&#39;thin&#39;,&#39;italic&#39;,flag?&#39;active&#39;:&#39;&#39;]&quot;&gt;这个很大，大到无法想象&lt;&#x2F;h1&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!-- 在数组中 使用对象来代替三元表达式，来提高可读性 --&gt;</span><br><span class="line">        &lt;h1 :class&#x3D;&quot;[&#39;thin&#39;,&#39;italic&#39;,&#123;&#39;active&#39;:flag&#125;]&quot;&gt;这个很大，大到无法想象&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 在为class使用v-绑定对象的时候，对象的属性是类名，又有对象的属性可带引号，也可不带引号，所以这里没写引号，属性的值是一个标识符 --&gt;</span><br><span class="line">        &lt;h1 :class&#x3D;&quot;&#123; &#39;red&#39;:true, thin:true, italic:false, active:false &#125;&quot;&gt;这个很大，大到无法想象&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">        &lt;h1 :class&#x3D;classObj&gt;这个很大，大到无法想象&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        flag:true,</span><br><span class="line">        classObj:&#123; &#39;red&#39;:false, thin:true, italic:false, active:false &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="绑定style类"><a href="#绑定style类" class="headerlink" title="绑定style类"></a>绑定style类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 对象就是无序键值对的集合 --&gt;</span><br><span class="line">        &lt;h1 :style&#x3D;&quot;&#123; color:&#39;red&#39;,&#39;font-weight&#39;:200&#125;&quot;&gt;只是一个h1&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">        &lt;h1 :style&#x3D;&quot;styleObj1&quot;&gt;只是一个h1&lt;&#x2F;h1&gt;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        &lt;h1 :style&#x3D;&quot;[styleObj1,styleObj2]&quot;&gt;只是一个h1&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        styleObj1:&#123;color:&#39;red&#39;,&#39;font-weight&#39;:200&#125;,</span><br><span class="line">        styleObj2:&#123;&#39;font-style&#39;:&#39;italic&#39;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h1><h2 id="v-for循环普通数组"><a href="#v-for循环普通数组" class="headerlink" title="v-for循环普通数组"></a>v-for循环普通数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- &lt;p&gt;&#123;&#123;list[0]&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;list[1]&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;list[2]&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;list[3]&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;list[4]&#125;&#125;&lt;&#x2F;p&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p v-for&#x3D;&quot;(item,i) in list&quot;&gt;索引值&#123;&#123;i&#125;&#125;-----&#123;&#123;item&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        list:[1,2,3,4,5,6]</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="v-for循环对象数组"><a href="#v-for循环对象数组" class="headerlink" title="v-for循环对象数组"></a>v-for循环对象数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;p v-for&#x3D;&quot;(user,i) in list&quot;&gt;ID: &#123;&#123;user.id&#125;&#125;----名字：&#123;&#123;user.name&#125;&#125;---索引：&#123;&#123;i&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        list:[</span><br><span class="line">        &#123; id:1,name:&#39;zs1&#39;&#125;,</span><br><span class="line">        &#123; id:2,name:&#39;zs2&#39;&#125;,</span><br><span class="line">        &#123; id:3,name:&#39;zs3&#39;&#125;,</span><br><span class="line">        &#123; id:4,name:&#39;zs4&#39;&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-for-循环对象"><a href="#v-for-循环对象" class="headerlink" title="v-for 循环对象"></a>v-for 循环对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;.&#x2F;lib&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 在遍历对象身上的键值对的时候，除了 有val  key，在第三个位置还有一个索引 --&gt;</span><br><span class="line">        &lt;p v-for&#x3D;&quot;(val,key,i) in user&quot;&gt;值&#123;&#123;val&#125;&#125;&#x3D;&#x3D;&#x3D;&#x3D;键&#123;&#123;key&#125;&#125;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;索引&#123;&#123;i&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        user:&#123;</span><br><span class="line">            id:1,</span><br><span class="line">            name:&#39;温东霖&#39;,</span><br><span class="line">            gender:&#39;男&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-for-key的使用"><a href="#v-for-key的使用" class="headerlink" title="v-for key的使用"></a>v-for key的使用</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt; 
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+
+
+        &lt;div&gt;
+            &lt;label&gt;Id:
+                &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
+            &lt;/label&gt;
+            &lt;label&gt;Name:
+                &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
+            &lt;/label&gt;
+
+                &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add&quot;&gt;
+
+        &lt;/div&gt;
+
+            &lt;!-- v-for循环时候，key属性只能使用number获取string --&gt;
+        &lt;!-- key在使用的时候必须使用v-bind属性绑定的形，指定key的值 --&gt;
+           &lt;!-- 在组件中，使用v-for循环的时候，或者在一些特殊情况，如果v-for有问题，必须在使用v-for的同时，指定唯一的字符串/数字 类型：key值 --&gt;
+        &lt;p v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;&gt;
+            {{item.id}}-----  {{item.name}}
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+    el: &apos;#app&apos;,
+    data: {
+        id:&apos;&apos;,
+        name:&apos;&apos;,
+        list:[
+            {id:1,name:&apos;温东霖&apos;},
+            {id:2,name:&apos;腾讯&apos;},
+            {id:3,name:&apos;阿里&apos;},
+            {id:4,name:&apos;啧啧&apos;},
+            {id:5,name:&apos;haole&apos;}
+        ]
+    },
+    methods: {
+        add(){//添加方法
+            this.list.unshift({id:this.id,name:this.name,})
+        }
+    },
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;     </code></pre><h2 id="v-if-v-show"><a href="#v-if-v-show" class="headerlink" title="v-if \ v-show"></a>v-if \ v-show</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt; 
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;!-- &lt;input type=&quot;button&quot; @click=&quot;toggle&quot; value=&quot;toggle&quot;&gt; --&gt;
+        &lt;input type=&quot;button&quot; @click=&quot;flag=!flag&quot; value=&quot;toggle&quot;&gt;
+        &lt;!-- v-if的特点是每次都会从新删除或创建元素 --&gt;
+        &lt;!-- v-show的特点是每次都不会进行DOM的删除和创建操作，只是切换了元素的display:none的样式 --&gt;
+
+        &lt;!-- v-if有较高的切换性能消耗 --&gt;
+        &lt;!-- v-show有较高的初始渲染 --&gt;
+
+        &lt;!-- 如果元素涉及到频繁的切换，最好不要使用v-if --&gt;
+        &lt;!-- 如果元素可能永远也不会被现实，则推荐v-if --&gt;
+        &lt;h3 v-if=&quot;flag&quot;&gt;这是用v-if&lt;/h3&gt;
+        &lt;h3 v-show=&quot;flag&quot;&gt;这是用v-show&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+    el: &apos;#app&apos;,
+    data: {
+        flag:true
+    },
+    methods: {
+        // toggle(){
+        //     this.flag =!this.flag
+        // }
+    },
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;    </code></pre><h1 id="id品牌添加增加案例"><a href="#id品牌添加增加案例" class="headerlink" title="id品牌添加增加案例"></a>id品牌添加增加案例</h1><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt; 
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./lib/bootstrap.css&quot;&gt;
+&lt;!--不需要jQuery --&gt; 
+
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+
+
+
+        &lt;div class=&quot;panel panel-primary&quot;&gt;
+              &lt;div class=&quot;panel-heading&quot;&gt;
+                    &lt;h3 class=&quot;panel-title&quot;&gt;添加品牌&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;panel-body form-inline&quot;&gt;
+                &lt;label&gt;
+                    Id:
+                    &lt;input type=&apos;text&apos; class=&quot;form-control&quot; v-model=&quot;id&quot;&gt;
+                &lt;/label&gt;
+                &lt;label&gt;
+                    Name:
+                    &lt;input type=&apos;text&apos; class=&quot;form-control&quot; v-model=&quot;name&quot;&gt;
+                &lt;/label&gt;
+                &lt;!-- 在vue中，使用事件绑定，为元素制定处理函数的时候，如果加了小括号，就可以给函数传参 --&gt;
+                &lt;input type=&quot;button&quot; value=&quot;添加&quot; class=&quot;btn btn-primay&quot; @click=&quot;add()&quot;&gt;
+              &lt;/div&gt;
+        &lt;/div&gt;
+
+
+
+       &lt;table class=&quot;table table-bordered table-hover table-striped&quot;&gt;
+           &lt;thead&gt;
+               &lt;tr&gt;
+                   &lt;th&gt;Id&lt;/th&gt;
+                   &lt;th&gt;Name&lt;/th&gt;
+                   &lt;th&gt;Ctime&lt;/th&gt;
+                   &lt;th&gt;Operation&lt;/th&gt;
+               &lt;/tr&gt;
+           &lt;/thead&gt;
+           &lt;tbody&gt;
+               &lt;tr v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+                   &lt;td&gt;{{ item.id }}&lt;/td&gt;
+                   &lt;td v-text=&quot;item.name&quot;&gt;&lt;/td&gt;
+                   &lt;td&gt;{{item.ctime}}&lt;/td&gt;
+                   &lt;td&gt;
+                       &lt;a href=&quot;&quot; @click.prevent=&quot;del(item.id)&quot;&gt;删除&lt;/a&gt;
+                   &lt;/td&gt;
+               &lt;/tr&gt;
+           &lt;/tbody&gt;
+       &lt;/table&gt;
+
+
+
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+    el: &apos;#app&apos;,
+    data: {
+        id:&apos;&apos;,
+        name:&apos;&apos;,
+        list:[
+            {id:1,name:&apos;奔驰&apos;,ctime:new Date()},
+            {id:2,name:&apos;宝马&apos;,ctime:new Date()}
+
+             ]
+    },
+    methods: {
+        add(){
+           // console.log(&apos;OK&apos;)
+           //1获取到id和name，直接在data上获取
+           //2组织出一个对象
+           //3把这个对象，调用数组的相关方法，添加到当前data的list中
+           //4注意，在Vue中，已经实现了数据的双向绑定，每当我们修改data的数据，Vue会默认监听数据改动，自动吧最新的数据应用在页面（v-model）
+
+            //5当我们意识到上面第四步的时候，实际上实在做Model数据的操作，同事，在操作Model数据的时候，指定的业务逻辑操作
+            var car={id :this.id ,name: this.name,ctime:new Date()}
+            this.list.push(car)
+            this.id=this.name=&apos;&apos;
+        },//添加方法
+        del(id){//根据Id删除数据
+                //如何根据ID找到要删除这项索引
+                //找到索引，直接调用 数组的splice方法
+
+            // this.list.some((item,i)=&gt;{
+            //     if(item.id==id){
+            //         this.list.splice(i,1)
+            //         return true;//在数组的some方法中，如果return true，就会立刻终止这个数组的后续循环
+            //     }
+            // })
+            var index=this.list.findIndex(item=&gt;{
+                if(item.id==id){
+                    return true;
+                }
+            })
+            console.log(index)
+            this.list.splice(index,1)
+
+        }
+    },
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;    </code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:26:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue初体验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/">Vue初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-4-22"><span class="toc-number">1.</span> <span class="toc-text">Vue 4.22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件修饰符"><span class="toc-number">1.1.</span> <span class="toc-text">事件修饰符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-model"><span class="toc-number">2.</span> <span class="toc-text">v-model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定class"><span class="toc-number">3.</span> <span class="toc-text">绑定class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定style类"><span class="toc-number">4.</span> <span class="toc-text">绑定style类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-for"><span class="toc-number">5.</span> <span class="toc-text">v-for</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#v-for循环普通数组"><span class="toc-number">5.1.</span> <span class="toc-text">v-for循环普通数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-for循环对象数组"><span class="toc-number">5.2.</span> <span class="toc-text">v-for循环对象数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for-循环对象"><span class="toc-number">5.2.1.</span> <span class="toc-text">v-for 循环对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for-key的使用"><span class="toc-number">5.2.2.</span> <span class="toc-text">v-for key的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-if-v-show"><span class="toc-number">5.3.</span> <span class="toc-text">v-if \ v-show</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#id品牌添加增加案例"><span class="toc-number">6.</span> <span class="toc-text">id品牌添加增加案例</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-18T14:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/">SourceTree安装与初体验</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-n">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/npm%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-17T14:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/npm%E5%88%9D%E4%BD%93%E9%AA%8C/">npm初体验</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-04-17T11:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/nodejs%E7%95%99%E8%A8%80%E6%9D%BF%E9%A1%B9%E7%9B%AE/">nodejs留言板项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/webpack%E5%AD%A6%E4%B9%A0/">webpack学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/Node-js%E5%88%9D%E4%BD%93%E9%AA%8C/">Node.js初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-13T11:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%94%B5%E8%84%91%E9%83%A8%E7%BD%B2%E4%B8%A4%E4%B8%AAgithub-pages%E5%8D%9A%E5%AE%A2/">如何在一个电脑部署两个github pages博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/" class="archive-article-date">
-  	<time datetime="2020-04-12T08:40:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%AC%94%EF%BC%8C%E7%AC%A8%E9%B8%9F%E5%86%8D%E9%A3%9E/">以此代笔，笨鸟再飞</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-04-11T11:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/04/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/04/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -481,8 +611,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
