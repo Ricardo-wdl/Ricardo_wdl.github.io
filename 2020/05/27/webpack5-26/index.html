@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 温东霖的个人博客</title>
+  <title>webpack5.26 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nice to meet you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温东霖的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="webpack5.26图片文件 ES6-&gt;ES5 配置Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack5.26">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/webpack5-26/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Nice to meet you">
+<meta property="og:description" content="webpack5.26图片文件 ES6-&gt;ES5 配置Vue">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-27T06:49:57.000Z">
+<meta property="article:modified_time" content="2020-05-27T07:34:59.976Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
   
@@ -166,294 +168,352 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+
+<article id="post-webpack5-26" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      webpack5.26
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/webpack5-26/" class="archive-article-date">
+
+        
+        <a href="/2020/05/27/webpack5-26/" class="archive-article-date">
   	<time datetime="2020-05-27T06:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/webpack5-26/">webpack5.26</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack5-26"><a href="#webpack5-26" class="headerlink" title="webpack5.26"></a>webpack5.26</h1><p>图片文件 ES6-&gt;ES5 配置Vue  </p>
+<a id="more"></a>
+<h2 id="图片文件的加入"><a href="#图片文件的加入" class="headerlink" title="图片文件的加入"></a>图片文件的加入</h2><p>上一博客中内容不变，在css中加入background，url引入。<br>在webpack配置中rules加入</p>
+<pre><code>{
+                //
+                test: /\.(png|jpg|gif|jpeg)$/,
+                use: [
+                  {
+                    loader: &apos;url-loader&apos;,
+                    options: {
+                        //当加载的图片小于limit时，会将图片编译为base64字符串形式
+                     //当加载的图片大雨limit时，需要file-loader
+                        limit: 8192,
+                        //设定文件出生在img文件夹，出生名为本名，加哈希值，都需要用[]否则名字会固定,ext是扩展名
+                        name:&apos;img/[name].[hash:8].[ext]&apos;
+                    },
 
-        <div class="article-info info-on-right">
-          
-          
+                  }
+                ]
+              },  </code></pre><p>终端键入  </p>
+<blockquote>
+<p>npm install –save-dev url-loader    </p>
+</blockquote>
+<p>此时图片可以在比limit小的情况下加载出来（base64字符串形式），然鹅图片大的话就不行了。<br>我们需要再安装</p>
+<blockquote>
+<p>npm install file-loader –save-dev  </p>
+</blockquote>
+<p>此时有了file-loader就行了。  </p>
+<h2 id="ES6-gt-ES5"><a href="#ES6-gt-ES5" class="headerlink" title="ES6-&gt;ES5"></a>ES6-&gt;ES5</h2><pre><code>{
+    test: /\.js$/,
+    exclude: /(node_modules|bower_components)/,
+    use: {
+    loader: &apos;babel-loader&apos;,
+    options: {
+        presets: [&apos;es2015&apos;]
+    }
+    }
+}</code></pre><blockquote>
+<p>npm install babel-loader babel-core babel-preset-es2015</p>
+</blockquote>
+<p>实测这种方法不行了，会报错显示没有@babel-core  </p>
+<h2 id="Vue配置"><a href="#Vue配置" class="headerlink" title="Vue配置**"></a>Vue配置**</h2><p>（因为报错太多无法更改所以从做了一遍）<br>首先</p>
+<blockquote>
+<p>npm install vue –save<br>npm install –save-dev vue-loader vue-template-compiler</p>
+</blockquote>
+<p>文件结构  </p>
+<pre><code>├─dist
+├─node_modules
+└─src
+    │  index.js
+    │
+    ├─img
+    │      test.jpg
+    │
+    ├─js
+    │      info.js
+    │      mathUtil.js
+    │
+    └─vue
+            app.js
+            App.vue</code></pre><p>App.vue  </p>
+<pre><code>&lt;template&gt;
+     &lt;div&gt;
+        &lt;h2 class=&quot;title&quot;&gt;{{message}}&lt;/h2&gt;
+        &lt;button @click=&quot;btnClick&quot;&gt;按钮&lt;/button&gt;
+        &lt;h2 &gt;{{name}}&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
 
+&lt;script&gt;
+export default {
+    name:&quot;App&quot;,
+
+    data(){
+        return{ 
+            message:&apos;Hello WEbpack&apos;,
+            name:&apos;wdl&apos;
+    } 
+    }, 
+    methods:{
+        btnClick(){
+
+        }
+    }
+}
+&lt;/script&gt;
+&lt;style scoped&gt;
+    .title{
+        color: green;
+    }
+&lt;/style&gt;</code></pre><p>index.js  </p>
+<pre><code>const{add}=require(&quot;./js/mathUtil&quot;)
+
+console.log(add(20,30))
+
+import {name,age,height} from &quot;./js/info&quot;
+console.log(name);
+console.log(age);
+console.log(height);
+
+
+
+//5使用Vue开发
+import Vue from &apos;vue&apos;
+// import App from &apos;./vue/app/&apos;
+import App from &apos;./vue/App.vue&apos;
+
+const app=new Vue({
+    el:&apos;#app&apos;,
+    template:&apos;&apos;,
+    data:{
+    },
+
+})
+
+new Vue({
+    el:&apos;#app&apos;,
+    template:&apos;&lt;App/&gt;&apos;,
+    components:{
+        App
+    }
+})  </code></pre><p>index.html  </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+    &lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </code></pre><p>webpack.config.js  </p>
+<pre><code>const path =require(&apos;path&apos;)
+const VueLoaderPlugin=require(&apos;vue-loader/lib/plugin&apos;);
+//开始时写错了，写成export，配置文件一直没成功
+//path需要是绝对路径，使用path模块将前面ed路径拼接起来
+module.exports={
+    entry:&apos;./src/index.js&apos;,
+    output:{
+        path:path.resolve(__dirname,&apos;./dist&apos;),
+        filename:&apos;bundle.js&apos;,
+        publicPath:&apos;dist/&apos;
+        //publicPath,文件的路径
+    },
+    module:{
+        rules:[
+          {test:/\.vue$/,
+            use:[&apos;vue-loader&apos;]//此处有一个错误！Vue-loader！
+
+          },
+          {test:/\.css$/,
+            use:[&apos;vue-style-loader&apos;,&apos;css-loader&apos;]
+
+
+          }
+        ]
+
+
+    },
+    plugins:[
+      new VueLoaderPlugin()
+    ]
+    ,
+    resolve:{
+      alias:{//别名
+        &apos;vue$&apos;:&apos;vue/dist/vue.esm.js&apos;
+      }
+    }
+}  </code></pre><p>此时可以运行，在vue-loader v13版本后 必须加上plugins插件，才可使用。  </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/05/27/webpack5-26/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/" class="archive-article-date">
-  	<time datetime="2020-05-25T13:29:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack初体验5.25</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/">webpack初体验5.25</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack5-26"><span class="toc-number">1.</span> <span class="toc-text">webpack5.26</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#图片文件的加入"><span class="toc-number">1.1.</span> <span class="toc-text">图片文件的加入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-gt-ES5"><span class="toc-number">1.2.</span> <span class="toc-text">ES6-&gt;ES5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue配置"><span class="toc-number">1.3.</span> <span class="toc-text">Vue配置**</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-05-22T13:26:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/">Vue5.14-22模块化</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/12/Vue5%E6%9C%8813/" class="archive-article-date">
-  	<time datetime="2020-05-12T12:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/12/Vue5%E6%9C%8813/">Vue5月13</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/" class="archive-article-date">
-  	<time datetime="2020-05-12T12:42:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/">Vue5月1-5月12</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2020-05-01T13:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/">简单的跨域</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-29T15:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/">Vue第三天总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-n">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-22T14:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/">Vue第二天总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:26:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/">Vue初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-18T14:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/SourceTree%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E4%BD%93%E9%AA%8C/">SourceTree安装与初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -481,8 +541,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
