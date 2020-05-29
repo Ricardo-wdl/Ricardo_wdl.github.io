@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>温东霖的个人博客</title>
+  <title>webpack5.27vue/cli5.28 | 温东霖的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nice to meet you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温东霖的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="webpack-5.27 plugin  BannerPlugin HtmlWebpackPlugin 丑化插件 本地服务器webpack-dev-server webpack配置分离vue&#x2F;cli 下载安装部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack5.27vue&#x2F;cli5.28">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/webpack5-27vue-cli5-28/index.html">
 <meta property="og:site_name" content="温东霖的个人博客">
-<meta property="og:description" content="Nice to meet you">
+<meta property="og:description" content="webpack-5.27 plugin  BannerPlugin HtmlWebpackPlugin 丑化插件 本地服务器webpack-dev-server webpack配置分离vue&#x2F;cli 下载安装部署">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/05/28/webpack5-27vue-cli5-28/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/28/webpack5-27vue-cli5-28/2.png">
+<meta property="article:published_time" content="2020-05-28T14:42:19.000Z">
+<meta property="article:modified_time" content="2020-05-29T04:10:29.798Z">
 <meta property="article:author" content="温东霖">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/28/webpack5-27vue-cli5-28/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="温东霖的个人博客" type="application/atom+xml">
   
@@ -166,15 +171,16 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-webpack5-27vue-cli5-28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+
+
+<article id="post-webpack5-27vue-cli5-28" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/webpack5-27vue-cli5-28/">webpack5.27vue/cli5.28</a>
+    <h1 class="article-title" itemprop="name">
+      webpack5.27vue/cli5.28
     </h1>
   
 
@@ -188,11 +194,139 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>webpack-5.27 plugin  BannerPlugin HtmlWebpackPlugin 丑化插件 本地服务器webpack-dev-server webpack配置分离<br>vue/cli 下载安装部署  </p>
-        
-          <a class="article-more-a" href="/2020/05/28/webpack5-27vue-cli5-28/#more">more >></a>
-        
+<a id="more"></a>
+<p>plugin 即插件</p>
+<h2 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h2><blockquote>
+<p>npm install html-webpack-plugin –save-dev  </p>
+</blockquote>
+<p>webpack.config.js 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const HtmlWebpackPlugin&#x3D;require(&#39;html-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"> plugins:[</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        template:&#39;index.html&#39;</span><br><span class="line">      &#125; )</span><br><span class="line">    ]  </span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">作用在于产生入口文件index.html</span><br><span class="line"></span><br><span class="line">## BannerPlugin</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">const webpack&#x3D;require(&#39;webpack&#39;)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">new webpack.BannerPlugin(&#39;版权归wdl所有&#39;),</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">显而易见，用于在js中加入版权信息。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 丑化  </span><br><span class="line">webpack4自带已经预处理，不做实验，作用在于将打包出来的文件丑化，变量名变为abcd，将空格、回车省略，减少内存容量</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## webpack-dev-server  </span><br><span class="line">&gt; npm install webpack-dev-server --save-dev</span><br><span class="line"></span><br><span class="line">安装webpack-dev-server</span><br><span class="line"></span><br><span class="line">&gt; .\node_modules\.bin\webpack-dev-server   </span><br><span class="line"></span><br><span class="line">需要在bin中运行此插件，或者进入  </span><br><span class="line">package.json  在scripts中加入</span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line">    &quot;dev&quot;:&quot;webpack-dev-server --open&quot;</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line">即可使用  </span><br><span class="line">&gt;npm run dev  </span><br><span class="line"></span><br><span class="line">## webpack配置分离  </span><br><span class="line">文件目录  </span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">└─build  </span><br><span class="line">    ├─base.config.js  </span><br><span class="line">    ├─dev.config.js</span><br><span class="line">    └─prod.config.js</span><br></pre></td></tr></table></figure>
+
+<p>安装模块</p>
+<blockquote>
+<p>npm install webpack-merge –save-dev  </p>
+</blockquote>
+<p>base.config.js  </p>
+<pre><code>const path =require(&apos;path&apos;)
+const webpack=require(&apos;webpack&apos;)
+const HtmlWebpackPlugin=require(&apos;html-webpack-plugin&apos;)
+const VueLoaderPlugin=require(&apos;vue-loader/lib/plugin&apos;);
+//开始时写错了，写成export，配置文件一直没成功
+//path需要是绝对路径，使用path模块将前面ed路径拼接起来
+module.exports={
+    entry:&apos;./src/index.js&apos;,
+    output:{
+        path:path.resolve(__dirname,&apos;../dist&apos;),
+        filename:&apos;bundle.js&apos;,
+
+    },
+    module:{
+        rules:[
+          {test:/\.vue$/,
+            use:[&apos;vue-loader&apos;]
+
+          },
+          {test:/\.css$/,
+            use:[&apos;vue-style-loader&apos;,&apos;css-loader&apos;]
+
+
+          }
+        ]
+
+
+    },
+    plugins:[
+      new VueLoaderPlugin(),
+      new webpack.BannerPlugin(&apos;版权归wdl所有&apos;),
+      new HtmlWebpackPlugin({
+        template:&apos;index.html&apos;
+      } )
+    ]
+    ,
+    resolve:{
+      alias:{//别名
+        &apos;vue$&apos;:&apos;vue/dist/vue.esm.js&apos;
+      }
+    },
+    // devServer:{
+    //   contentBase:&apos;./dist&apos;,
+    //   inline:true
+    // }
+}</code></pre><p>运行配置<br>dev.config.js</p>
+<pre><code>const webpackMerge = require(&apos;webpack-merge&apos;)
+const baseConfig=require(&apos;./base.config&apos;)
+
+module.exports=webpackMerge(baseConfig,
+    {
+      devServer:{
+      contentBase:&apos;./dist&apos;,
+      inline:true
+    }  
+    })
+</code></pre><p>产品配置，production<br>prod.config.js  </p>
+<pre><code>const webpackMerge = require(&apos;webpack-merge&apos;)
+const baseConfig=require(&apos;./base.config&apos;)
+
+module.exports=webpackMerge(baseConfig,
+   {
+//丑化模块
+}
+    )
+
+</code></pre><h2 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue/cli"></a>vue/cli</h2><blockquote>
+<p>npm install -g @vue/cli  </p>
+</blockquote>
+<p>版本号</p>
+<blockquote>
+<p>vue –version  </p>
+</blockquote>
+<p>使用2.模板  </p>
+<blockquote>
+<p>npm install -g @vue/cli-init  </p>
+</blockquote>
+<p>安装成功，开始在文件夹中</p>
+<blockquote>
+<p>vue init webpack vuecli2test  </p>
+</blockquote>
+<p>已经完成，文件结构。</p>
+<img src="/2020/05/28/webpack5-27vue-cli5-28/1.jpg" class title="[配置信息]">   
+
+
+<img src="/2020/05/28/webpack5-27vue-cli5-28/2.png" class title="[项目目录结构]">   
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,16 +335,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/webpack5-27vue-cli5-28/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardowdl.github.io/2020/05/28/webpack5-27vue-cli5-28/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/27/webpack5-26/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack5.26</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -225,602 +418,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-webpack5-26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/27/webpack5-26/">webpack5.26</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/27/webpack5-26/" class="archive-article-date">
-  	<time datetime="2020-05-27T06:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="webpack5-26"><a href="#webpack5-26" class="headerlink" title="webpack5.26"></a>webpack5.26</h1><p>图片文件 ES6-&gt;ES5 配置Vue  </p>
-        
-          <a class="article-more-a" href="/2020/05/27/webpack5-26/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/27/webpack5-26/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HtmlWebpackPlugin"><span class="toc-number">1.</span> <span class="toc-text">HtmlWebpackPlugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-cli"><span class="toc-number">2.</span> <span class="toc-text">vue&#x2F;cli</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-webpack初体验5-25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/">webpack初体验5.25</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/" class="archive-article-date">
-  	<time datetime="2020-05-25T13:29:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="webpack初体验"><a href="#webpack初体验" class="headerlink" title="webpack初体验"></a>webpack初体验</h1><p>起步 配置 loader</p>
-        
-          <a class="article-more-a" href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/webpack%E5%88%9D%E4%BD%93%E9%AA%8C5-25/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue5-14-22模块化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/">Vue5.14-22模块化</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-05-22T13:26:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><p>模块化的基本使用 </p>
-        
-          <a class="article-more-a" href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/Vue5-14-22%E6%A8%A1%E5%9D%97%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue5月13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/12/Vue5%E6%9C%8813/">Vue5月13</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/12/Vue5%E6%9C%8813/" class="archive-article-date">
-  	<time datetime="2020-05-12T12:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-5-13"><a href="#Vue-5-13" class="headerlink" title="Vue 5.13"></a>Vue 5.13</h1><p>组件化、组件通信、组件访问、slot</p>
-        
-          <a class="article-more-a" href="/2020/05/12/Vue5%E6%9C%8813/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/12/Vue5%E6%9C%8813/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue5月1-5月12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/">Vue5月1-5月12</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/" class="archive-article-date">
-  	<time datetime="2020-05-12T12:42:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-5-1-5-12"><a href="#Vue-5-1-5-12" class="headerlink" title="Vue 5.1-5.12"></a>Vue 5.1-5.12</h1><p>计算属性、ES6部分</p>
-        
-          <a class="article-more-a" href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/12/Vue5%E6%9C%881-5%E6%9C%8812/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-简单的跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/">简单的跨域</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2020-05-01T13:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简单的跨域（nginx）"><a href="#简单的跨域（nginx）" class="headerlink" title="简单的跨域（nginx）"></a>简单的跨域（nginx）</h1><p>解决昨天无法完成的跨域请求问题，以及简单的jsonp请求  </p>
-        
-          <a class="article-more-a" href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/%E7%AE%80%E5%8D%95%E7%9A%84%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue第三天总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/">Vue第三天总结</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-29T15:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-4-22-29"><a href="#Vue-4-22-29" class="headerlink" title="Vue 4.22-29"></a>Vue 4.22-29</h1><p>品牌案例完善  生命周期函数演示   过滤器基本使用   vue-resource    jsonp页面（nodejs）   </p>
-        
-          <a class="article-more-a" href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/Vue%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="n-Vue第二天总结" class="article article-type-n  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/">Vue第二天总结</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-22T14:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-4-22"><a href="#Vue-4-22" class="headerlink" title="Vue 4.22"></a>Vue 4.22</h1><p>事件修饰符、v-model、绑定class类、绑定style类、v-for key、v-if v-show、id品牌添加删除</p>
-        
-          <a class="article-more-a" href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/22/Vue%E7%AC%AC%E4%BA%8C%E5%A4%A9%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/">Vue初体验</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-20T12:26:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue初体验"><a href="#Vue初体验" class="headerlink" title="Vue初体验"></a>Vue初体验</h1><p>2020.4.19  </p>
-        
-          <a class="article-more-a" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/Vue%E5%88%9D%E4%BD%93%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -847,8 +470,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
